@@ -1,8 +1,13 @@
-const express = require("express")
-const mysql = require("mysql")
-const path = require("path")
+// Env file
 require("dotenv").config()
+
+const express = require("express")
+const path = require("path")
+
+// Express router
 const router = express.Router()
+
+// App and Port
 const port = parseInt(process.env.PORT) || 3000
 const app = express()
 
@@ -16,6 +21,10 @@ app.get("/",(req,res) => {
             error : err.message
         })
     }
+})
+
+app.get('*',(req,res) => {
+    res.status(400).sendFile(path.join(__dirname,'./404','./404.html'))
 })
 
 app.listen(port,(err) => {
