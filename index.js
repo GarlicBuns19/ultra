@@ -3,7 +3,8 @@ require("dotenv").config()
 
 const express = require("express")
 const path = require("path")
-
+// The database
+const db = require("./config/dbMysql")
 // Express router
 const router = express.Router()
 
@@ -23,6 +24,7 @@ app.get("/",(req,res) => {
     }
 })
 
+// For all errors
 app.get('*',(req,res) => {
     res.status(400).sendFile(path.join(__dirname,'./404','./404.html'))
 })
