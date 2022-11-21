@@ -8,12 +8,15 @@ const db = require("./config/dbMysql")
 // Express router
 const router = express.Router()
 const data = require("./routes/getData")
+const addedData = require("./routes/addData")
 // App and Port
 const port = parseInt(process.env.PORT) || 3000
 const app = express()
 
 // Use Routes
+app.use(express.json())
 app.use('/ultra',data)
+app.use('/ultra',addedData)
 
 app.get("/",(req,res) => {
     try{
