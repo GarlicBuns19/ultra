@@ -14,7 +14,6 @@ router.post("/addData", (req, res) => {
         res.json({
             status : 400,
             msg : 'Could not add the data',
-            err : err.msg
         })
     }
     res.json({

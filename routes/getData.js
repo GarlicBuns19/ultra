@@ -12,7 +12,6 @@ router.get('/data',(req,res) => {
             res.json({
                 status : 400,
                 msg : "Could not fetch data",
-                error : err.message
             })
         }else{
             res.json({
