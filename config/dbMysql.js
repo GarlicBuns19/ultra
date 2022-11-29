@@ -18,7 +18,7 @@ con.connect((err) => {
   if (err) {
     console.log("Database cannot run")
   } else {
-    console.log("Databse is running");
+    console.log("Database is running");
   }
 });
 
