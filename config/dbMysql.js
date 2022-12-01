@@ -17,7 +17,6 @@ const con = mysql.createConnection({
 con.connect((err) => {
   if (err) {
     console.log("Database cannot run");
-    con.connect()
   } else {
     console.log("Database is running");
   }
