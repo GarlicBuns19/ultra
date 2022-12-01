@@ -16,9 +16,24 @@ const con = mysql.createConnection({
 // Connecting to Database
 con.connect((err) => {
   if (err) {
-    console.log("Database cannot run")
+    console.log("Database cannot run");
   } else {
     console.log("Database is running");
+  }
+});
+
+con.on("error", function (err) {
+  console.log("db error", err);
+  if (err.code === "PROTOCOL_CONNECTION_LOST") {
+    con.connect((err) => {
+      if (err) {
+        console.log("Database cannot run");
+      } else {
+        console.log("Database is running");
+      }
+    });
+  } else {
+    console.log(err.messsage)
   }
 });
 
